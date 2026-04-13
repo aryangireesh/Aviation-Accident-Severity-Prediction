@@ -96,7 +96,7 @@ col1, col2 = st.columns(2)
 
 # Severity Distribution
 with col1:
-    st.subheader("📊 Severity Distribution")
+    st.subheader("Severity Distribution")
 
     severity_counts = df_filtered["severity_class"].value_counts().reset_index()
     severity_counts.columns = ["severity_class", "count"]
@@ -113,7 +113,7 @@ with col1:
 
 # Weather Severity
 with col2:
-    st.subheader("🌦️ Avg Severity by Weather")
+    st.subheader("Avg Severity by Weather")
 
     if "wx_cond_basic" in df.columns:
         weather_avg = df.groupby("wx_cond_basic")["severity_class"].mean().reset_index()
@@ -184,7 +184,7 @@ with col1:
 
 # Top Countries
 with col2:
-    st.subheader("🌍 Top Countries")
+    st.subheader("Top Countries")
 
     top_country = df_filtered["ev_country"].value_counts().head(10).reset_index()
     top_country.columns = ["country", "count"]
@@ -200,7 +200,7 @@ st.markdown("---")
 # -----------------------------
 # 🤖 ML PREDICTION
 # -----------------------------
-st.header("🤖 Accident Severity Prediction")
+st.header("Accident Severity Prediction")
 
 model = pickle.load(open("model.pkl", "rb"))
 columns = pickle.load(open("columns.pkl", "rb"))
@@ -272,7 +272,7 @@ if st.button("🔍 Predict"):
 # -----------------------------
 # 🧠 SHAP (FINAL STABLE VERSION)
 # -----------------------------
-st.subheader("🧠 AI Feature Impact")
+st.subheader(" AI Feature Impact")
 
 try:
     explainer = shap.TreeExplainer(model)
@@ -313,4 +313,4 @@ except Exception as e:
 # FOOTER
 # -----------------------------
 st.markdown("---")
-st.caption("🚀 Final Year AI Project | Aviation Accident Analysis")
+st.caption("Aviation Accident Analysis")
