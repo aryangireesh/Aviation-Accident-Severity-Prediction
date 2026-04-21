@@ -136,7 +136,7 @@ col1, col2 = st.columns(2)
 
 # High Risk Manufacturers
 with col1:
-    st.subheader("🏭 High Risk Manufacturers")
+    st.subheader("High Risk Manufacturers")
 
     if "acft_make" in merged_filtered.columns:
         manu_stats = merged_filtered.groupby("acft_make").agg({
@@ -156,7 +156,7 @@ with col1:
 
 # Top Models
 with col2:
-    st.subheader("✈️ Top Aircraft Models")
+    st.subheader("Top Aircraft Models")
 
     if "acft_model" in merged_filtered.columns:
         top_models = merged_filtered["acft_model"].value_counts().head(10).reset_index()
@@ -174,7 +174,7 @@ col1, col2 = st.columns(2)
 
 # Top Manufacturers
 with col1:
-    st.subheader("🏭 Top Manufacturers")
+    st.subheader("Top Manufacturers")
 
     top_manu = merged_filtered["acft_make"].value_counts().head(10).reset_index()
     top_manu.columns = ["manufacturer", "count"]
